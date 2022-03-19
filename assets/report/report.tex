@@ -1,0 +1,67 @@
+\documentclass{article}
+
+% Packages for equations, fonts, and colors.
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+
+% Packages and Commands for list head.
+\usepackage{enumitem}
+\renewcommand*{\thesection}{\Roman{section}}
+\renewcommand*{\thesubsection}{\thesection.(\alph{subsection})}
+
+% Packages and Commands for size.
+\usepackage{geometry}
+\geometry{
+a4paper,
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm
+}
+% Packages and Commands to set up paragraph indentation.
+\usepackage{lipsum}
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.2em}
+
+% Packages and Commands to set up citation, links, etc.
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+citecolor=blue,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=blue
+}
+
+% Packages and commands for title spacing.
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0cm}{0.1cm}{0.1cm}
+\titlespacing*{\subsection}
+{0.25cm}{0.1cm}{0.1cm}
+
+% Commands to set up reference template.
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% ------------------------------------------------------------
+
+\title{Project Report}
+\author{Team 5\footnote{Contact: \{shiwechen6-c,\}@my.cityu.edu.hk}  \:- Shiwei Chen, Shixiang Wang}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\section{Methodology}
+\section{Experiment Setup}
+\section{Experiment Result}
+
+\begin{thebibliography}{00}
+
+\end{thebibliography}
+
+
+\end{document}
