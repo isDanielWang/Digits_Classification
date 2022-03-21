@@ -16,14 +16,14 @@
 a4paper,
 left=20mm,
 right=20mm,
-top=20mm,
+top=15mm,
 bottom=20mm
 }
 % Packages and Commands to set up paragraph indentation.
 \usepackage{lipsum}
 \usepackage{setspace}
 \setlength{\parindent}{0em}
-\setlength{\parskip}{1.2em}
+\setlength{\parskip}{1.0em}
 
 % Packages and Commands to set up citation, links, etc.
 \usepackage{hyperref}
@@ -47,7 +47,7 @@ urlcolor=blue
 
 % ------------------------------------------------------------
 
-\title{Project Proposal: Digits Classification using CNN}
+\title{Project Proposal: Digits Classification}
 \author{Team 5\footnote{Contact: \{shiwechen6-c, sxwang6-c\}@my.cityu.edu.hk}  \:- Shiwei Chen, Shixiang Wang}
 \date{March 2022}
 
@@ -56,13 +56,10 @@ urlcolor=blue
 \maketitle
 
 \section{Introduction}
-In this project, we will research on classifying handwritten digits, a subtask under the field of Contextual Image Classification in Computer Vision. The task is provided by the famous Modified National Institute of Standard and Technology datasets \cite{ref1} (Hereinafter referred as \textit{the MNIST dataset}). In the early days of machine learning, the dataset was widely used for benmarking various image processing systems. While the original datasets contains $60000$ samples for training and $10000$ samples for testing, our project uses only a fraction of them, which are $2000$ samples for training and $2000$ samples for testing. Additionally, the project will be tested on a hidden dataset at the end of submission deadline to determine the final performance. In the subsequent sections, we will describe our method for the task, the basic structure of the experiment, and the expected outcome.
+ In this project, we will research on classifying handwritten digits, a subtask under the field of Contextual Image Classification in Computer Vision. The task is provided by the famous Modified National Institute of Standard and Technology datasets \cite{ref1} (Hereinafter referred as \textit{the MNIST dataset}). In the early days of machine learning, the dataset was widely used for benchmarking various image processing systems. While the original datasets contain $60000$ samples for training and $10000$ samples for testing, our project uses only a fraction of them, which are $2000$ samples for training and $2000$ samples for testing. The fewer data makes our project even more challenging. Additionally, the project will be tested on a hidden dataset at the end of the submission deadline to determine the final performance. In the subsequent sections, we will describe our method for the task, the basic structure of the experiment, and the expected outcome.
 
 \section{Methodology}
-    \subsection{Data Augmentation}
-    Due to the restricted size of the data, we deem that Data Augmentation, a techinique to increase the diversity of the training data without actual collection and labeling, is necessary. Large amount of data is essential for supervised learning methods to achieve high performance \cite{ref2}. We plan on using random noise, random rotation and translation, flipping (for symmetric digits), cropping, and resizing, to at least increase the size of the restricted dataset to the same magnitude as the original MNIST dataset.
-    \subsection{Network Structure}
-    According to the leaderboard \cite{ref3}, Convolution Neural Network (CNN)\cite{ref4} is still the dominant component in the state of the arts of this task. Therefore, we plan on construct our own netowrk structure on the basis of CNN. More precisely, we want to construct an ensemble of slightly different CNN-based networks that will together vote for the final classification decision \cite{ref5}. The difference can be kernel sizes, number of layers, with or without normalization, etc. 
+ Due to the restricted size of the data, we deem that Data Augmentation, a technique to increase the diversity of the training data without actual collection and labeling, is necessary. A large amount of data is essential for supervised learning methods to achieve high-performance \cite{ref2}. We plan on using random noise, random rotation and translation, flipping (for symmetric digits), cropping, and resizing to at least increase the size of the restricted dataset to the same magnitude as the original MNIST dataset. After that, we will walk through the entire machine learning progress. First, we will try to use dimension reduction algorithms such as PCA to preprocess the feature vectors. Then we plan to try traditional classification algorithms such as logistic regression, SVM, and KNN. As this is a multi-class classification problem, we will try to use '1 vs. all' or 'softmax' to extend the binary classification to multi-class classification. According to the leaderboard, \cite{ref3}, Convolution Neural Network (CNN)\cite{ref4} is still the dominant component in the state of the arts of this task. Therefore, we plan on constructing our network structure based on CNN. More precisely, we want to construct an ensemble of slightly different CNN-based networks that will together vote for the final classification decision \cite{ref5}. The difference can be kernel sizes, number of layers, number of nodes, with or without normalization, etc. Besides, we will also try to apply residual blocks to alleviate the vanishing gradient problem in deep neural networks. We will test our implement algorithms on a separate test data set to ensure that the training set and test set are independent. The accuracy will be chosen as the evaluation criteria.
 
 \section{Experiment and Expected Result}
 The experiment will be conducted in a Jupyter notebook for convenience, with PyTorch being the primary network building tool. The experiment will follow general data science workflow and thus roughly consist of four parts: 
